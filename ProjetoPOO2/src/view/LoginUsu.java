@@ -91,8 +91,8 @@ public class LoginUsu extends javax.swing.JFrame {
         jLabel6.setText("consultas de maneira rápida e fácil");
         jPanel3.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, -1, -1));
 
-        jLabel7.setIcon(new javax.swing.ImageIcon("C:\\Users\\loren\\OneDrive\\Área de Trabalho\\ProjetoFinalPOO2\\ProjetoPOO2\\ProjetoPOO2\\src\\images\\HealthIcon.png")); // NOI18N
-        jPanel3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 10, 130, 130));
+        jLabel7.setIcon(new javax.swing.ImageIcon("C:\\Users\\aluno.saolucas\\Desktop\\ProjetoFinalPOO2\\ProjetoPOO2\\ProjetoPOO2\\src\\images\\HealthIcon.png")); // NOI18N
+        jPanel3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 30, 130, 130));
 
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 0, 320, 390));
 
@@ -121,7 +121,7 @@ public class LoginUsu extends javax.swing.JFrame {
         jLabel8.setText("Não possui login? ");
 
         lblCadastro.setForeground(new java.awt.Color(0, 0, 0));
-        lblCadastro.setText("Cadastra-se");
+        lblCadastro.setText("Cadastrar-se");
         lblCadastro.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lblCadastroMouseClicked(evt);
