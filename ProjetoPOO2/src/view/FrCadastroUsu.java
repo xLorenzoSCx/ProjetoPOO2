@@ -9,12 +9,12 @@ package view;
  *
  * @author loren
  */
-public class CadastroUsu extends javax.swing.JDialog {
+public class FrCadastroUsu extends javax.swing.JDialog {
 
     /**
      * Creates new form CadastroUsu
      */
-    public CadastroUsu(java.awt.Frame parent, boolean modal) {
+    public FrCadastroUsu(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
     }
@@ -75,7 +75,7 @@ public class CadastroUsu extends javax.swing.JDialog {
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 330, 550));
 
-        jPanel2.setBackground(new java.awt.Color(0, 204, 204));
+        jPanel2.setBackground(new java.awt.Color(102, 255, 102));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel5.setForeground(new java.awt.Color(0, 0, 0));
@@ -127,7 +127,7 @@ public class CadastroUsu extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnVoltarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVoltarMouseClicked
-        LoginUsu loginUsu = new LoginUsu();
+        FrLoginUsu loginUsu = new FrLoginUsu();
         loginUsu.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnVoltarMouseClicked
@@ -149,20 +149,21 @@ public class CadastroUsu extends javax.swing.JDialog {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CadastroUsu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrCadastroUsu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CadastroUsu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrCadastroUsu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CadastroUsu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrCadastroUsu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CadastroUsu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrCadastroUsu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                CadastroUsu dialog = new CadastroUsu(new javax.swing.JFrame(), true);
+                FrCadastroUsu dialog = new FrCadastroUsu(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
