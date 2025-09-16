@@ -5,6 +5,13 @@
  */
 package view;
 
+import controller.UsuarioController;
+import java.io.File;
+import javax.swing.Icon;
+import javax.swing.JOptionPane;
+import model.Usuario;
+import utils.Util;
+
 /**
  *
  * @author loren
@@ -32,19 +39,19 @@ public class FrCadastroMedico extends javax.swing.JDialog {
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        txtNome = new javax.swing.JTextField();
-        txtCRM = new javax.swing.JTextField();
+        edtNome = new javax.swing.JTextField();
+        edtCrm = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        txtTelefone = new javax.swing.JTextField();
+        edtTelefone = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        txtConfirmarSenha = new javax.swing.JPasswordField();
-        txtSenha = new javax.swing.JPasswordField();
+        edtConfirmarSenha = new javax.swing.JPasswordField();
+        edtSenha = new javax.swing.JPasswordField();
         btnSair = new javax.swing.JButton();
         btnCadastrar = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
-        jLabel7 = new javax.swing.JLabel();
+        imgFoto = new javax.swing.JLabel();
         btnAlterarFoto = new javax.swing.JButton();
         jComboBox1 = new javax.swing.JComboBox<>();
 
@@ -66,13 +73,13 @@ public class FrCadastroMedico extends javax.swing.JDialog {
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Nome");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, -1, -1));
-        jPanel1.add(txtNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, 210, -1));
-        jPanel1.add(txtCRM, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, 210, -1));
+        jPanel1.add(edtNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, 210, -1));
+        jPanel1.add(edtCrm, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, 210, -1));
 
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("CRM");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, -1, -1));
-        jPanel1.add(txtTelefone, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, 210, -1));
+        jPanel1.add(edtTelefone, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, 210, -1));
 
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Telefone");
@@ -85,29 +92,44 @@ public class FrCadastroMedico extends javax.swing.JDialog {
         jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Confirmar senha");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 330, -1, -1));
-        jPanel1.add(txtConfirmarSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 350, 210, -1));
-        jPanel1.add(txtSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, 210, -1));
+        jPanel1.add(edtConfirmarSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 350, 210, -1));
+        jPanel1.add(edtSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, 210, -1));
 
         btnSair.setText("Sair");
+        btnSair.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnSairMouseClicked(evt);
+            }
+        });
         jPanel1.add(btnSair, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 520, 70, -1));
 
         btnCadastrar.setText("Cadastrar");
+        btnCadastrar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnCadastrarMouseClicked(evt);
+            }
+        });
         jPanel1.add(btnCadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 520, -1, -1));
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+            .addComponent(imgFoto, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+            .addComponent(imgFoto, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
         );
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 140, -1, -1));
 
         btnAlterarFoto.setText("Alterar foto");
+        btnAlterarFoto.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnAlterarFotoMouseClicked(evt);
+            }
+        });
         jPanel1.add(btnAlterarFoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 250, 100, -1));
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Dermatologista", "Oftalmologista", "Otorrinolaringologista", "Urologista" }));
@@ -127,9 +149,121 @@ public class FrCadastroMedico extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
+    private void btnCadastrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCadastrarMouseClicked
+        gravar();
+    }//GEN-LAST:event_btnCadastrarMouseClicked
+
+    private void btnSairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSairMouseClicked
+
+        FrMenuMedico menuMedico = new FrMenuMedico(null, rootPaneCheckingEnabled);
+        menuMedico.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnSairMouseClicked
+
+    private void btnAlterarFotoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAlterarFotoMouseClicked
+
+        File arquivo = Util.escolherImagem();
+
+        //carrega a imagem se selecionou um arquivo
+        if (arquivo != null) {
+            //Converte para um ícone
+            Icon icone = Util.converterFileToIcon(arquivo);
+
+            //redimensiono a imagem para caber no imgFoto
+            Icon iconeNovo = Util.redimensionarImagem(icone, 100, 100);
+
+            imgFoto.setIcon(iconeNovo);
+        }
+
+
+    }//GEN-LAST:event_btnAlterarFotoMouseClicked
+
+    public void gravar() {
+
+        if (!verificarCamposUsuario()) {
+            return;
+
+        };
+
+        Usuario usu = new Usuario();
+
+        usu.setNome(edtNome.getText());
+        usu.setCrm(edtCrm.getText());
+        usu.setTelefone(Integer.parseInt(edtTelefone.getText()));
+        usu.setSenha(Util.calcularHash(new String(edtSenha.getPassword())));
+        usu.setImage(imgFoto.getIcon());
+
+        UsuarioController controller = new UsuarioController();
+
+        if (controller.inserir(usu)) {
+            JOptionPane.showMessageDialog(null, "Usuário inserido");
+            this.dispose();
+
+        }
+
+    }
+
+    private boolean verificarCamposUsuario() {
+
+        if (edtNome.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Campo 'Nome' em branco");
+            return false;
+        }
+
+        if (new String(edtSenha.getPassword()).isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Campo 'Senha' em branco");
+            return false;
+        }
+
+        if (edtCrm.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Campo 'CRM' em branco");
+            return false;
+
+        }
+
+        if (edtTelefone.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Campo 'Telefone' em branco");
+            return false;
+
+        }
+
+        //^ - Início de linha
+        //$ - final de linha
+        //[] - conjunto de caracteres
+        //+ - quantidade de vezes que o conjunto pode aparecer
+        //+ - 1 ou mais vezes
+        //* - 0 ou mais vezes
+        //{5} - 5 vezes
+        //{2} - 2 vezes
+        if (!edtNome.getText().matches("^[\\p{L} ]+$")) {//a- [a-zA-Z]
+            JOptionPane.showMessageDialog(null,
+                    "O campo 'Nome' possui formato inválido");
+            return false;
+        }
+
+        if (new String(edtSenha.getPassword()).length() < 6) {
+            JOptionPane.showMessageDialog(null,
+                    "A senha deve ser maior que 6 dígitos");
+            return false;
+        }
+
+        if (edtCrm.getText().length() < 6) {
+            JOptionPane.showMessageDialog(null, "Campo 'CRM' em incorreto");
+            return false;
+
+        }
+        String senha = new String(edtSenha.getPassword());
+        String confirmaSenha = new String(edtConfirmarSenha.getPassword());
+        if (!senha.equals(confirmaSenha)) {
+            JOptionPane.showMessageDialog(null,
+                    "As senhas devem ser iguais");
+            return false;
+        }
+
+        return true;
+
+    }
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -173,6 +307,12 @@ public class FrCadastroMedico extends javax.swing.JDialog {
     private javax.swing.JButton btnAlterarFoto;
     private javax.swing.JButton btnCadastrar;
     private javax.swing.JButton btnSair;
+    private javax.swing.JPasswordField edtConfirmarSenha;
+    private javax.swing.JTextField edtCrm;
+    private javax.swing.JTextField edtNome;
+    private javax.swing.JPasswordField edtSenha;
+    private javax.swing.JTextField edtTelefone;
+    private javax.swing.JLabel imgFoto;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -180,14 +320,8 @@ public class FrCadastroMedico extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JTextField txtCRM;
-    private javax.swing.JPasswordField txtConfirmarSenha;
-    private javax.swing.JTextField txtNome;
-    private javax.swing.JPasswordField txtSenha;
-    private javax.swing.JTextField txtTelefone;
     // End of variables declaration//GEN-END:variables
 }

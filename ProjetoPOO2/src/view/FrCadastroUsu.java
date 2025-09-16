@@ -36,15 +36,15 @@ public class FrCadastroUsu extends javax.swing.JDialog {
         jLabel11 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
-        txtNome = new javax.swing.JTextField();
+        edtNome = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        txtEmail = new javax.swing.JTextField();
+        edtEmail = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        txtTelefone = new javax.swing.JTextField();
+        edtTelefone = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-        txtCPF = new javax.swing.JTextField();
+        edtCpf = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
-        txtData = new javax.swing.JFormattedTextField();
+        edtData = new javax.swing.JFormattedTextField();
         jLabel10 = new javax.swing.JLabel();
         btnCadastrar = new javax.swing.JButton();
         btnVoltar = new javax.swing.JButton();
@@ -84,29 +84,29 @@ public class FrCadastroUsu extends javax.swing.JDialog {
         jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Nome");
         jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, -1, -1));
-        jPanel2.add(txtNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 260, -1));
+        jPanel2.add(edtNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 260, -1));
 
         jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Email");
         jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, -1, -1));
-        jPanel2.add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 260, -1));
+        jPanel2.add(edtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 260, -1));
 
         jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("Telefone");
         jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, -1, -1));
-        jPanel2.add(txtTelefone, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 260, -1));
+        jPanel2.add(edtTelefone, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 260, -1));
 
         jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("CPF");
         jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, -1, -1));
-        jPanel2.add(txtCPF, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, 260, -1));
+        jPanel2.add(edtCpf, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, 260, -1));
 
         jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setText("Data de nascimento");
         jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, -1, -1));
 
-        txtData.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.MEDIUM))));
-        jPanel2.add(txtData, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 290, 260, -1));
+        edtData.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.MEDIUM))));
+        jPanel2.add(edtData, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 290, 260, -1));
 
         jLabel10.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(0, 0, 0));
@@ -184,6 +184,11 @@ public class FrCadastroUsu extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCadastrar;
     private javax.swing.JButton btnVoltar;
+    private javax.swing.JTextField edtCpf;
+    private javax.swing.JFormattedTextField edtData;
+    private javax.swing.JTextField edtEmail;
+    private javax.swing.JTextField edtNome;
+    private javax.swing.JTextField edtTelefone;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -198,10 +203,5 @@ public class FrCadastroUsu extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JTextField txtCPF;
-    private javax.swing.JFormattedTextField txtData;
-    private javax.swing.JTextField txtEmail;
-    private javax.swing.JTextField txtNome;
-    private javax.swing.JTextField txtTelefone;
     // End of variables declaration//GEN-END:variables
 }

@@ -1,4 +1,4 @@
-CREATE DATABASE  IF NOT EXISTS `poo2` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+CREATE DATABASE  IF NOT EXISTS `poo2` /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
 USE `poo2`;
 -- MySQL dump 10.13  Distrib 8.0.43, for Win64 (x86_64)
 --
@@ -23,7 +23,7 @@ USE `poo2`;
 
 DROP TABLE IF EXISTS `paciente`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!50503 SET character_set_client = utf8 */;
 CREATE TABLE `paciente` (
   `pkpaciente` int NOT NULL AUTO_INCREMENT,
   `nome` varchar(100) NOT NULL,
@@ -34,7 +34,7 @@ CREATE TABLE `paciente` (
   `datanasc` datetime NOT NULL,
   PRIMARY KEY (`pkpaciente`),
   UNIQUE KEY `CPF` (`CPF`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --

@@ -32,10 +32,10 @@ public class FrCadastroLocal extends javax.swing.JDialog {
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        txtNomeLocal = new javax.swing.JTextField();
-        btnNumero = new javax.swing.JTextField();
+        edtNomeLocal = new javax.swing.JTextField();
+        edtNumero = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        btnCEP = new javax.swing.JTextField();
+        edtCep = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         btnVoltar = new javax.swing.JButton();
         btnSalvar = new javax.swing.JButton();
@@ -73,13 +73,13 @@ public class FrCadastroLocal extends javax.swing.JDialog {
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Nome do local");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(51, 199, -1, -1));
-        jPanel1.add(txtNomeLocal, new org.netbeans.lib.awtextra.AbsoluteConstraints(51, 221, 324, -1));
-        jPanel1.add(btnNumero, new org.netbeans.lib.awtextra.AbsoluteConstraints(51, 273, 324, -1));
+        jPanel1.add(edtNomeLocal, new org.netbeans.lib.awtextra.AbsoluteConstraints(51, 221, 324, -1));
+        jPanel1.add(edtNumero, new org.netbeans.lib.awtextra.AbsoluteConstraints(51, 273, 324, -1));
 
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Número");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(51, 251, -1, -1));
-        jPanel1.add(btnCEP, new org.netbeans.lib.awtextra.AbsoluteConstraints(51, 325, 324, -1));
+        jPanel1.add(edtCep, new org.netbeans.lib.awtextra.AbsoluteConstraints(51, 325, 324, -1));
 
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("CEP");
@@ -148,16 +148,16 @@ public class FrCadastroLocal extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField btnCEP;
-    private javax.swing.JTextField btnNumero;
     private javax.swing.JButton btnSalvar;
     private javax.swing.JButton btnVoltar;
+    private javax.swing.JTextField edtCep;
+    private javax.swing.JTextField edtNomeLocal;
+    private javax.swing.JTextField edtNumero;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JTextField txtNomeLocal;
     // End of variables declaration//GEN-END:variables
 }

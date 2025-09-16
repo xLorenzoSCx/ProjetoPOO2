@@ -11,12 +11,10 @@ package view;
  */
 public class FrMenuMedico extends javax.swing.JDialog {
 
-    /**
-     * Creates new form FrMenuMedico
-     */
     public FrMenuMedico(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
