@@ -1,6 +1,7 @@
-
 package view;
 
+import controller.LocalController;
+import controller.PacienteController;
 import controller.UsuarioController;
 import java.util.List;
 import model.Local;
@@ -54,6 +55,11 @@ public class FrConsultas extends javax.swing.JDialog {
         jPanel1.add(cbxLocal, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 170, 130, -1));
 
         btnMarcar.setText("Marcar");
+        btnMarcar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnMarcarMouseClicked(evt);
+            }
+        });
         jPanel1.add(btnMarcar, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 330, -1, -1));
 
         btnVoltar.setText("Voltar");
@@ -75,17 +81,38 @@ public class FrConsultas extends javax.swing.JDialog {
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         UsuarioController controller = new UsuarioController();
-        //Consulto todos os usuários
-        List<Usuario> lista = controller.consultar(0, "");
+        PacienteController controllerPaciente = new PacienteController();
+        LocalController controllerLocal = new LocalController();
 
-        //percorro a lisa de usuários
+        List<Usuario> lista = controller.consultar(0, "");
+        List<Paciente> listaPaciente = controllerPaciente.consultarPaciente(0, "");
+        List<Local> listaLocal = controllerLocal.consultarLocal(0, "");
+
         for (Usuario usu : lista) {
-            //para cada usuário eu adiciono ele na lista
+
             cbxMedico.addItem(usu);
-            //O texto que irá aparecer dentro da ComboBox é o método toString() 
-            //da classe Usuario
+
         }
+
+        for (Paciente paciente : listaPaciente) {
+
+            cbxPaciente.addItem(paciente);
+
+        }
+
+        for (Local local : listaLocal) {
+
+            cbxLocal.addItem(local);
+
+        }
+
+
     }//GEN-LAST:event_formWindowOpened
+
+    private void btnMarcarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMarcarMouseClicked
+
+
+    }//GEN-LAST:event_btnMarcarMouseClicked
 
     /**
      * @param args the command line arguments

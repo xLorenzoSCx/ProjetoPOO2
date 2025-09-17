@@ -5,6 +5,13 @@
  */
 package view;
 
+import controller.LocalController;
+import controller.PacienteController;
+import javax.swing.JOptionPane;
+import model.Local;
+import model.Paciente;
+import utils.Util;
+
 /**
  *
  * @author loren
@@ -49,6 +56,10 @@ public class FrCadastroUsu extends javax.swing.JDialog {
         btnCadastrar = new javax.swing.JButton();
         btnVoltar = new javax.swing.JButton();
         jComboBox1 = new javax.swing.JComboBox<>();
+        jLabel12 = new javax.swing.JLabel();
+        edtSenha = new javax.swing.JPasswordField();
+        edtConfirmarSenha = new javax.swing.JPasswordField();
+        jLabel13 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Cadastro paciente");
@@ -76,7 +87,7 @@ public class FrCadastroUsu extends javax.swing.JDialog {
         jLabel11.setIcon(new javax.swing.ImageIcon("C:\\Users\\aluno.saolucas\\Desktop\\ProjetoFinalPOO2\\ProjetoPOO2\\ProjetoPOO2\\src\\images\\maskIcon.png")); // NOI18N
         jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 130, -1, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 330, 550));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 330, 570));
 
         jPanel2.setBackground(new java.awt.Color(102, 255, 102));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -93,20 +104,20 @@ public class FrCadastroUsu extends javax.swing.JDialog {
 
         jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("Telefone");
-        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, -1, -1));
-        jPanel2.add(edtTelefone, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 260, -1));
+        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 280, -1, -1));
+        jPanel2.add(edtTelefone, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, 260, -1));
 
         jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("CPF");
-        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, -1, -1));
-        jPanel2.add(edtCpf, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, 260, -1));
+        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 330, -1, -1));
+        jPanel2.add(edtCpf, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 350, 260, -1));
 
         jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setText("Data de nascimento");
-        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, -1, -1));
+        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 380, -1, -1));
 
         edtData.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.MEDIUM))));
-        jPanel2.add(edtData, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 290, 260, -1));
+        jPanel2.add(edtData, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 400, 260, -1));
 
         jLabel10.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(0, 0, 0));
@@ -114,7 +125,12 @@ public class FrCadastroUsu extends javax.swing.JDialog {
         jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 30, -1, -1));
 
         btnCadastrar.setText("Cadastrar");
-        jPanel2.add(btnCadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 450, -1, -1));
+        btnCadastrar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnCadastrarMouseClicked(evt);
+            }
+        });
+        jPanel2.add(btnCadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 520, -1, -1));
 
         btnVoltar.setText("Voltar");
         btnVoltar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -122,12 +138,22 @@ public class FrCadastroUsu extends javax.swing.JDialog {
                 btnVoltarMouseClicked(evt);
             }
         });
-        jPanel2.add(btnVoltar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 450, -1, -1));
+        jPanel2.add(btnVoltar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 520, -1, -1));
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nenhuma deficiência", "Autismo", "Deficiente visual", "Deficiente auditivo" }));
-        jPanel2.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 330, -1, -1));
+        jPanel2.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 440, -1, -1));
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 0, 330, 550));
+        jLabel12.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel12.setText("Senha");
+        jPanel2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, -1, -1));
+        jPanel2.add(edtSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, 260, -1));
+        jPanel2.add(edtConfirmarSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, 260, -1));
+
+        jLabel13.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel13.setText("Confirmar senha");
+        jPanel2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, -1, -1));
+
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 0, 330, 570));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -138,9 +164,78 @@ public class FrCadastroUsu extends javax.swing.JDialog {
         this.setVisible(false);
     }//GEN-LAST:event_btnVoltarMouseClicked
 
-    /**
-     * @param args the command line arguments
-     */
+    private void btnCadastrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCadastrarMouseClicked
+        gravar();
+    }//GEN-LAST:event_btnCadastrarMouseClicked
+
+    public void gravar() {
+
+        if (!verificarCamposLocal()) {
+            return;
+
+        };
+
+        Paciente paciente = new Paciente();
+
+        paciente.setNome(edtNome.getText());
+        paciente.setCpf(Integer.parseInt(edtCpf.getText()));
+        paciente.setSenha(new String(edtSenha.getPassword()));
+        paciente.setTelefone(Integer.parseInt(edtTelefone.getText()));
+        paciente.setEmail(edtEmail.getText());
+        paciente.setDatanasc(Util.converterStringToDate(edtData.getText()));
+
+        PacienteController controller = new PacienteController();
+
+        if (controller.inserir(paciente)) {
+            JOptionPane.showMessageDialog(null, "Paciente inserido");
+            this.dispose();
+
+        }
+
+    }
+
+    private boolean verificarCamposLocal() {
+
+        if (edtNome.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Campo 'Nome' em branco");
+            return false;
+        }
+
+        if (edtCpf.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Campo 'CPF' em branco");
+            return false;
+
+        }
+
+        if (new String(edtSenha.getPassword()).isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Campo 'Senha' em branco");
+            return false;
+
+        }
+
+        if (edtTelefone.getText().matches("^[a-z_.]+@[a-z_.]+.[a-z]+$")) {
+            JOptionPane.showMessageDialog(null, "Campo 'Telefone' está incorreto");
+            return false;
+        }
+
+        if (!edtEmail.getText().matches("^[a-z0-9_.]+@[a-z0-9_.]+.[a-z]+$")) {
+            JOptionPane.showMessageDialog(null,
+                    "O campo 'Email' possui formato inválido");
+            return false;
+        }
+        if (!edtData.getText().matches("^[0-9]{2}/[0-9]{2}/[0-9]{4}$")) {
+            JOptionPane.showMessageDialog(null,
+                    "O campo 'Data Nascimento' possui formato inválido");
+            return false;
+        }
+        if (new String(edtSenha.getPassword()).length() < 6) {
+            JOptionPane.showMessageDialog(null,
+                    "A senha deve ser maior que 6 dígitos");
+            return false;
+        }
+        return true;
+    }
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -184,15 +279,19 @@ public class FrCadastroUsu extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCadastrar;
     private javax.swing.JButton btnVoltar;
+    private javax.swing.JPasswordField edtConfirmarSenha;
     private javax.swing.JTextField edtCpf;
     private javax.swing.JFormattedTextField edtData;
     private javax.swing.JTextField edtEmail;
     private javax.swing.JTextField edtNome;
+    private javax.swing.JPasswordField edtSenha;
     private javax.swing.JTextField edtTelefone;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

@@ -5,6 +5,13 @@
  */
 package view;
 
+import controller.LocalController;
+import controller.UsuarioController;
+import javax.swing.JOptionPane;
+import model.Local;
+import model.Usuario;
+import utils.Util;
+
 /**
  *
  * @author loren
@@ -89,6 +96,11 @@ public class FrCadastroLocal extends javax.swing.JDialog {
         jPanel1.add(btnVoltar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 420, -1, -1));
 
         btnSalvar.setText("Salvar");
+        btnSalvar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnSalvarMouseClicked(evt);
+            }
+        });
         jPanel1.add(btnSalvar, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 420, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -105,9 +117,74 @@ public class FrCadastroLocal extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
+    private void btnSalvarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalvarMouseClicked
+        gravar();
+    }//GEN-LAST:event_btnSalvarMouseClicked
+
+    public void gravar() {
+
+        if (!verificarCamposLocal()) {
+            return;
+
+        };
+
+        Local local = new Local();
+
+        local.setNomeLocal(edtNomeLocal.getText());
+        local.setNumeroLocal(Integer.parseInt(edtNumero.getText()));
+        local.setCep(Integer.parseInt(edtCep.getText()));
+
+        LocalController controller = new LocalController();
+
+        if (controller.inserir(local)) {
+            JOptionPane.showMessageDialog(null, "Local inserido");
+            this.dispose();
+
+        }
+
+    }
+
+    private boolean verificarCamposLocal() {
+
+        if (edtNomeLocal.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Campo 'Nome' em branco");
+            return false;
+        }
+
+        if (edtNumero.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Campo 'Número' em branco");
+            return false;
+
+        }
+
+        if (edtCep.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Campo 'CEP' em branco");
+            return false;
+
+        }
+
+        if (!edtNomeLocal.getText().matches("^[\\p{L} ]+$")) {//a- [a-zA-Z]
+            JOptionPane.showMessageDialog(null,
+                    "O campo 'Nome' possui formato inválido");
+            return false;
+        }
+
+        if (edtNumero.getText().length() < 2) {
+            JOptionPane.showMessageDialog(null,
+                    "A senha deve ser maior que 2 dígitos");
+            return false;
+        }
+
+        if (edtCep.getText().length() < 6) {
+            JOptionPane.showMessageDialog(null, "Campo 'CEP' em incorreto");
+            return false;
+
+        }
+
+        return true;
+
+    }
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

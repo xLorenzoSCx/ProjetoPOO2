@@ -5,6 +5,7 @@ import javax.swing.Icon;
 
 public class Paciente {
 
+    private int pkPaciente;
     private String nome;
     private int cpf;
     private String senha;
@@ -16,7 +17,8 @@ public class Paciente {
     public Paciente() {
     }
 
-    public Paciente(String nome, int cpf, String senha, int telefone, String email, Date datanasc, Icon image) {
+    public Paciente(int pkPaciente, String nome, int cpf, String senha, int telefone, String email, Date datanasc, Icon image) {
+        this.pkPaciente = pkPaciente;
         this.nome = nome;
         this.cpf = cpf;
         this.senha = senha;
@@ -24,6 +26,14 @@ public class Paciente {
         this.email = email;
         this.datanasc = datanasc;
         this.image = image;
+    }
+
+    public void setPkPaciente(int pkPaciente) {
+        this.pkPaciente = pkPaciente;
+    }
+
+    public int getPkPaciente() {
+        return pkPaciente;
     }
 
     public String getNome() {
@@ -80,6 +90,11 @@ public class Paciente {
 
     public void setImage(Icon image) {
         this.image = image;
+    }
+
+    @Override
+    public String toString() {
+        return "Paciente{" + "pkPaciente=" + pkPaciente + ", nome=" + nome + '}';
     }
 
 }

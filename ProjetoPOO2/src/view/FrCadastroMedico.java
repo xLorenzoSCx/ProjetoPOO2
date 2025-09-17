@@ -196,7 +196,7 @@ public class FrCadastroMedico extends javax.swing.JDialog {
         UsuarioController controller = new UsuarioController();
 
         if (controller.inserir(usu)) {
-            JOptionPane.showMessageDialog(null, "Usuário inserido");
+            JOptionPane.showMessageDialog(null, "Médico inserido");
             this.dispose();
 
         }
